@@ -1,86 +1,22 @@
-<div class="row">
-  <div class="small-12 small-centered columns text-center">
-    <h1>My name's Daniel</h1>
-  </div>
+<div class="icon-bar vertical four-up vertical-menu">
+  {{#link-to 'home' class='item'}}
+    {{unbound fa-icon 'home'}}
+    <label>Home</label>
+  {{/link-to}}
+  <a class="item">
+    {{unbound fa-icon 'info'}}
+    <label>Info</label>
+  </a>
+  <a class="item">
+    {{unbound fa-icon 'desktop'}}
+    <label>Applications</label>
+  </a>
+  <a class="item">
+    {{unbound fa-icon 'envelope-o'}}
+    <label>Contact</label>
+  </a>
 </div>
 
-<div class="hero">
-  <div class="row">
-    <div class="large-12 columns intro-text">
-      <p>
-        <a href="http://stackoverflow.com/users/2166409/daniel?theme=clean">
-          <img src="http://stackoverflow.com/users/flair/2166409.png" width="208" height="58" alt="profile for Daniel at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for Daniel at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
-        </a>
-        <br/>
-        I'm aspiring web engineer.
-      </p>
-    </div>
-  </div>
-</div>
-
-<div class="row about">
-    <div class="medium-6 large-8 columns">
-        <h4>About</h4>
-        <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
-    </div>
-    <div class="medium-6 large-4 columns">
-        <img src="http://placehold.it/550x300">
-    </div>
-</div>
-
-<div class="row work">
-    <hr>
-    <div class="large-12 columns">
-        <h4>Work</h4>
-        <p>Click on each image to view my work!</p>
-
-        <ul class="clearing-thumbs small-block-grid-1 medium-block-grid-2 large-block-grid-4" data-clearing>
-            <li>
-                <a href="http://placehold.it/550x300">
-                    <img data-caption="caption here" src="http://placehold.it/550x300"></a>
-            </li>
-            <li>
-                <a href="http://placehold.it/550x300"><img data-caption="caption 2 here..." src="http://placehold.it/550x300"></a>
-            </li>
-            <li>
-                <a href="http://placehold.it/550x300"><img data-caption="caption 3 here..." src="http://placehold.it/550x300"></a>
-            </li>
-            <li>
-                <a href="http://placehold.it/550x300"><img data-caption="caption 4 here..." src="http://placehold.it/550x300"></a>
-            </li>
-        </ul>
-    </div>
-</div>
-
-<div class="row contact">
-  <hr>
-  <div class="large-12 columns">
-    <h4>Contact Me</h4>
-    <div class="large-4 columns">
-        <strong>Email</strong>: <a href="#"><span class="__cf_email__" data-cfemail="3b565e7b56424b54494f5d5457525415585456">[email protected]</span></a>
-    </div>
-    <div class="large-4 columns">
-        <strong>Twitter</strong>: @twitterhandle
-    </div>
-    <div class="large-4 columns">
-        <strong>Phone</strong>: 555-555-1234
-    </div>
-  </div>
-</div>
-
-<footer class="row">
-  <div class="large-12 columns">
-    <div class="row">
-      <div class="large-6 columns">
-          <p>© Copyright Daniel Kmak.</p>
-      </div>
-      <div class="large-6 columns">
-        <ul class="inline-list right">
-          <li><a href="#">FAQ</a></li>
-          <li><a href="#">Privacy</a></li>
-          <li><a href="#">Suscribe</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</footer>
+<main class="row full">
+  {{outlet}}
+</main>

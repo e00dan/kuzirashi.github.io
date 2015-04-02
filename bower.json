@@ -12,6 +12,7 @@
     "ember-qunit": "0.3.0",
     "ember-qunit-notifications": "0.0.7",
     "qunit": "~1.17.1",
-    "foundation": "~5.5.0"
+    "foundation": "~5.5.0",
+    "particles.js": "~1.1.0"
   }
 }

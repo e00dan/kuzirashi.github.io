@@ -1,57 +1,74 @@
+$primary-color: rgb(179, 128, 72);
+
 @import "settings";
 
 @import "foundation";
 
+$bg-color: #1d1d1d;
+
 body {
   font-family: 'Raleway', Helvetica, Arial, sans-serif;
   font-weight: 400;
-  background-color: rgba(0, 0, 0, 0.02);
+  background-color: $bg-color;
 }
 
-.button {
-  font-family: 'Raleway', Helvetica, Arial, sans-serif;
-}
-
-.button-group li {
-  padding-top: 3%;
-}
-
-.button-group a {
-  color: rgba(0, 0, 0, 1);
-  background-color: transparent;
-}
-
-.button-group a:hover {
-  color: rgba(0, 0, 0, 0.4);
-  background-color: transparent;
-}
-
-.button-group {
-  float: none;
-}
-
-@media only screen and (min-width: 40.063em) {
-  .button-group {
-    float: right;
-  }
+@-webkit-keyframes hero {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 .hero {
   background: url('/img/traffic-690030_1280.jpg');
   background-size: cover;
-  box-shadow: inset 0px 0px 0 2000px rgba(0, 0, 0, 0.15);
-  height: 80%;
+  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.15);
+  height: 100vh;
+  position: relative;
+  color: $white;
+  transition: color 5s ease-in-out;
+  -webkit-animation: hero 5s;
+
+  /*
+  &:hover {
+    color: #352511;
+
+    &::before {
+      background: linear-gradient(to top, transparentize($white, 0.9) 0%, transparent 100%);
+    }
+
+    img {
+      -webkit-filter: grayscale(1) sepia(0.5);
+    }
+  }
+  */
+
+  img {
+    width: 208px;
+    height: 58px;
+    transition: -webkit-filter 5s;
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    width: 100%;
+    top: 0;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(to top, black 0%, transparent 100%);
+    opacity: 0.7;
+    transition: background 2s ease-in-out;
+  }
 }
 
 .intro-text {
   padding-top: 40%;
-  color: rgba(255, 255, 255, 1);
   text-align: center;
 
   p {
     font-size: 44px;
   }
 }
+
 @media only screen and (min-width: 40.063em) {
   .intro-text {
     padding-top: 25%;
@@ -88,13 +105,15 @@ body {
   height: 140px;
   overflow: hidden;
 }
+
 hr {
   border: 0;
   height: 1px;
-  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-  background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-  background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  $main-color: opacify($white, 0.75);
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), $main-color, rgba(0, 0, 0, 0));
+  background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0), $main-color, rgba(0, 0, 0, 0));
+  background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0), $main-color, rgba(0, 0, 0, 0));
+  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0), $main-color, rgba(0, 0, 0, 0));
   opacity: 0.8;
 }
 
@@ -105,4 +124,42 @@ footer {
     color: rgba(0, 0, 0, 0.4);
     background-color: transparent;
   }
+}
+
+.row {
+  &.about, &.work, &.contact {
+    margin: 0;
+    width: 100%;
+  }
+
+  &.full {
+    padding-left: 115px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  &.full > .column:first-child, .full > .columns:first-child {
+    padding-left: 0;
+  }
+
+  &.full > .column:last-child, .full > .columns:last-child {
+    padding-right: 0;
+  }
+}
+
+.vertical-menu {
+  position: fixed;
+  z-index: 1;
+}
+
+canvas {
+  display:block;
+  vertical-align:bottom;
+}
+
+#particles-js{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
 }
