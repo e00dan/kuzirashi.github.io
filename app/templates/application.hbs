@@ -1,20 +1,20 @@
-<div class="icon-bar vertical four-up vertical-menu">
+<div class="icon-bar four-up">
   {{#link-to 'home' class='item'}}
     {{unbound fa-icon 'home'}}
     <label>Home</label>
   {{/link-to}}
-  <a class="item">
-    {{unbound fa-icon 'info'}}
-    <label>Info</label>
-  </a>
-  <a class="item">
+  {{#link-to 'about' class='item'}}
+    {{unbound fa-icon 'user'}}
+    <label>About me</label>
+  {{/link-to}}
+  {{#link-to 'apps' class='item'}}
     {{unbound fa-icon 'desktop'}}
     <label>Applications</label>
-  </a>
-  <a class="item">
+  {{/link-to}}
+  {{#link-to 'contact' class='item'}}
     {{unbound fa-icon 'envelope-o'}}
     <label>Contact</label>
-  </a>
+  {{/link-to}}
 </div>
 
 <main class="row full">
