@@ -1,6 +1,10 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:100,400);
+
 $primary-color: #737373;
 $header-font-color: white;
 $body-font-color: white;
+$paragraph-font-weight: 100;
+$form-label-font-weight: 100;
 
 @import "settings";
 
@@ -8,13 +12,40 @@ $body-font-color: white;
 
 $bg-color: #1d1d1d;
 
+@mixin transition($transition...) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  animation: #{$str};
+  -moz-animation: #{$str};
+}
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes $animation-name {
+    @content;
+  }
+
+  @-moz-keyframes $animation-name {
+    @content;
+  }
+
+  @keyframes $animation-name {
+    @content;
+  }
+}
+
 body {
   font-family: 'Raleway', Helvetica, Arial, sans-serif;
-  font-weight: 400;
+  font-weight: 100;
   background-color: $bg-color;
 }
 
-@-webkit-keyframes hero {
+@include keyframes(hero) {
   0%   { opacity: 0; }
   100% { opacity: 1; }
 }
@@ -26,8 +57,8 @@ body {
   height: 100vh;
   position: relative;
   color: $white;
-  transition: color 5s ease-in-out;
-  -webkit-animation: hero 5s;
+  @include transition(color 5s ease-in-out);
+  @include animation(hero 5s);
 
   /*
   &:hover {
@@ -46,7 +77,7 @@ body {
   img {
     width: 208px;
     height: 58px;
-    transition: -webkit-filter 5s;
+    @include transition(-webkit-filter 5s);
   }
 
   &::before {
@@ -58,7 +89,7 @@ body {
     position: absolute;
     background: linear-gradient(to top, black 0%, transparent 100%);
     opacity: 0.7;
-    transition: background 2s ease-in-out;
+    @include transition(background 2s ease-in-out);
   }
 }
 
@@ -82,6 +113,16 @@ body {
   }
 }
 
+@media only screen and (min-width: 456px) {
+  .icon-bar:not(.vertical) {
+    position: absolute;
+
+    &.four-up .item {
+      width: 25%;
+    }
+  }
+}
+
 .about,
 .work,
 .contact {
@@ -97,11 +138,7 @@ body {
 }
 .work img:hover {
   opacity: 0.5;
-  -webkit-transition: 0.3s ease;
-  -moz-transition: 0.3s ease;
-  -ms-transition: 0.3s ease;
-  -o-transition: 0.3s ease;
-  transition: 0.3s ease;
+  @include transition(0.3s ease);
 }
 .work li {
   height: 140px;
@@ -171,11 +208,14 @@ canvas {
 }
 
 .icon-bar {
-  background-color: #0E1017;
+  background-color: transparentize(#0E1017, 0.25);
+
+  &.four-up .item {
+    width: 100%;
+  }
 
   &:not(.vertical) {
     display: block;
-    position: absolute;
     top: 0;
     z-index: 1;
 
@@ -203,7 +243,7 @@ canvas {
 
     &.active, &:hover {
       background: rgba(115, 115, 115, 0.26);
-      transition: background .5s cubic-bezier(0, 1.8, 1, 1.8);
+      @include transition(background .5s cubic-bezier(0, 1.8, 1, 1.8));
     }
 
     &::before {
@@ -233,8 +273,8 @@ canvas {
   height: 100vh;
   position: relative;
   color: $white;
-  transition: color 5s ease-in-out;
-  -webkit-animation: hero 5s;
+  @include transition(color 5s ease-in-out);
+  @include animation(hero 5s);
 
   &::before {
     content: '';
@@ -245,6 +285,6 @@ canvas {
     position: absolute;
     background: linear-gradient(to top, black 0%, black 50%, transparent 100%);
     opacity: 0.7;
-    transition: background 2s ease-in-out;
+    @include transition(background 2s ease-in-out);
   }
 }

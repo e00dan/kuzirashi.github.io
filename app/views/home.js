@@ -2,6 +2,8 @@ import Ember from 'ember';
 
 export default Ember.View.extend({
   initParticles: Ember.on('didInsertElement', function() {
+    let ammount = (window.matchMedia('(max-width: 456px)').matches) ? 40 : 100;
+    
     particlesJS('particles-js', {
       particles: {
         color: '#fff',
@@ -18,7 +20,7 @@ export default Ember.View.extend({
         },
         size: 2.5,
         size_random: true,
-        nb: 100,
+        nb: ammount,
         line_linked: {
           enable_auto: false,
           distance: 140,
