@@ -3,7 +3,6 @@ import Ember from 'ember';
 export default Ember.View.extend({
   initParticles: Ember.on('didInsertElement', function() {
     let ammount = (window.matchMedia('(max-width: 456px)').matches) ? 40 : 100;
-    
     particlesJS('particles-js', {
       particles: {
         color: '#fff',
