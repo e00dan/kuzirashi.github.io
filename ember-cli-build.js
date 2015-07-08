@@ -2,16 +2,6 @@
 
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
-var app = new EmberApp({
-  'ember-cli-foundation-sass': {
-    'modernizr': true,
-    'fastclick': true,
-    'foundationJs': 'all'
-  }
-});
-
-app.import('bower_components/particles.js/particles.js');
-
 // Use `app.import` to add additional libraries to the generated
 // output files.
 //
@@ -25,4 +15,19 @@ app.import('bower_components/particles.js/particles.js');
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
-module.exports = app.toTree();
+module.exports = function() {
+  var app = new EmberApp({
+    'ember-cli-foundation-sass': {
+      'modernizr': true,
+      'fastclick': true,
+      'foundationJs': 'all'
+    },
+    fingerprint: {
+      exclude: ['img/logo-white.jpg']
+    }
+  });
+
+  app.import('bower_components/particles.js/particles.js');
+
+  return app.toTree();
+};

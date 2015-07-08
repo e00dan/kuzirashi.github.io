@@ -1,1 +1,55 @@
 {{outlet}}
+<!-- <div class="background-image"></div> -->
+<section class="text-center over-image">
+  <div class="row full">
+    <div class="large-12 columns intro-text apps">
+      <p>
+        <div class="large-6 large-offset-3 columns">
+          <label>
+            {{input value=searchName type='text' class='filter-apps' placeholder='search by application name...'}}
+          </label>
+        </div>
+        <hr/>
+        <em class="tags">TAGS</em>
+        <ul class="tags">
+          {{#each model.tags key='id' as |tag|}}
+            <li class="label">{{tag.name}}<span class="apps-count">{{tag.applications.length}}</span></li>
+          {{/each}}
+        </ul>
+        <hr/>
+        <ul class="applications">
+          {{#each filteredApps key='id' as |app|}}
+            <li>
+              {{#if app.latest}}
+                <div class="ribbon ribbon-black">
+              		<div class="banner">
+              			<div class="text">Latest</div>
+              		</div>
+              	</div>
+              {{/if}}
+              {{#if app.smallImage}}
+                <img src="{{app.smallImage}}"/>
+              {{else}}
+                <div class="no-image"><i class="fa fa-times"></i></div>
+              {{/if}}
+              <div class="body">
+                <header>{{app.name}}</header>
+                <div>{{app.description}}</div>
+                <footer>
+                  <ul>
+                    {{#each app.tags key='id' as |tag|}}
+                      <li class="label">{{tag.name}}</li>
+                    {{/each}}
+                  </ul>
+                  {{#if app.link}}
+                    <a class="right app-link" href={{app.link}} target="_blank">{{app.link}}</a>
+                  {{/if}}
+                </footer>
+              </div>
+            </li>
+          {{/each}}
+        </ul>
+      </p>
+    </div>
+  </div>
+</section>
