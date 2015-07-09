@@ -7,7 +7,7 @@
 <em class="tags">TAGS</em>
 <ul class="tags">
   {{#each model.tags key='id' as |tag|}}
-    <li class="label">{{tag.id}}<span class="apps-count">{{tag.apps.length}}</span></li>
+    <li class="label" title="tag name">{{tag.id}}<span class="apps-count" title="number of applications linked with this tag">{{tag.apps.length}}</span></li>
   {{/each}}
 </ul>
 <hr/>
@@ -17,7 +17,7 @@
       {{#if app.latest}}
         <div class="ribbon ribbon-black">
           <div class="banner">
-            <div class="text">LATEST</div>
+            <div class="text">LATEST <i class="fa fa-diamond topped-image"></i></div>
           </div>
         </div>
       {{/if}}
@@ -27,10 +27,13 @@
         {{else}}
           <div class="no-image"><i class="fa fa-times"></i></div>
         {{/if}}
+        {{#if app.added}}
+          <div class="image-caption">{{time-ago time=app.added title='added'}}</div>
+        {{/if}}
       {{/link-to}}
       <div class="body">
-        <header>{{app.name}}</header>
-        <div>{{app.description}}</div>
+        <header>{{link-to app.name 'apps.view' app.id title="application's name"}}</header>
+        <div class="description" title="application's description">{{app.description}}</div>
         <footer>
           <ul>
             {{#each app.tags key='id' as |tag|}}

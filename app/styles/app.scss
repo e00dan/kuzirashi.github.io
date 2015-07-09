@@ -1,5 +1,3 @@
-@import "vendor/3d-corner-ribbons";
-
 @import url(http://fonts.googleapis.com/css?family=Raleway:100,400);
 
 $primary-color: #737373;
@@ -80,6 +78,8 @@ body {
     width: 208px;
     height: 58px;
     @include transition(-webkit-filter 5s);
+    margin: auto;
+    display: block;
   }
 
   &::before {
@@ -319,6 +319,14 @@ ul.applications {
       float: left;
     }
 
+    > a {
+      &:hover {
+        .image-caption {
+          height: 160px;
+        }
+      }
+    }
+
     div.no-image {
       background-color: rgba(115, 115, 115, 0.41);
       height: 160px;
@@ -342,6 +350,16 @@ ul.applications {
       header {
         font-size: 24px;
         font-weight: bold;
+
+        a {
+          color: white;
+          font-weight: 300;
+          text-transform: uppercase;
+        }
+      }
+
+      .description {
+        text-transform: lowercase;
       }
 
       footer {
@@ -420,4 +438,130 @@ input.filter-apps {
   right: 10px;
   bottom: 18px;
   color: white;
+}
+
+.image-caption {
+  width: 160px;
+  height: 25px;
+  bottom: 0;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  text-transform: lowercase;
+  @include transition(height 1s ease-in-out);
+}
+
+.application-detailed {
+  background-color: rgba(0, 0, 0, 0.36);
+}
+
+.ribbon {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+
+  .text, .banner, a {
+		margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+	}
+
+  .banner {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    display: block;
+    float: right;
+    position: relative;
+    right: -14px;
+    top: 21px;
+    width: 96px;
+  }
+
+  .text {
+    position: relative;
+    z-index: 2;
+    font-size: 12px;
+    min-height: 18px;
+    line-height: 18px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    letter-spacing: 6px;
+    padding-top: 8px;
+    text-indent: 8px;
+
+    &::before,
+    &::after {
+    	content: '';
+    	display: block;
+    	height: 30px;
+    	position: absolute;
+    	top: 0;
+    	width: 100%;
+    	z-index: -1;
+      //background-color: #232927;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.1) 0%,rgba(255,255,255,0) 100%); /* W3C */
+    }
+
+    &::before {
+      -webkit-transform: translateX(-15%) skewX(-45deg);
+    	-moz-transform: translateX(-15%) skewX(-45deg);
+    	-ms-transform: translateX(-15%) skewX(-45deg);
+    	-o-transform: translateX(-15%) skewX(-45deg);
+    }
+
+    &::after {
+      -webkit-transform: translateX(15%) skewX(45deg);
+    	-moz-transform: translateX(15%) skewX(45deg);
+    	-ms-transform: translateX(15%) skewX(45deg);
+    	-o-transform: translateX(15%) skewX(45deg);
+    }
+  }
+}
+
+.topped-image {
+  position: absolute;
+  top: -26px;
+  right: 31%;
+  z-index: -2;
+  font-size: 16px;
+  opacity: 0.25;
+}
+
+.opacity-25 {
+  opacity: 0.25;
+}
+
+.me-equals {
+  text-transform: uppercase;
+  letter-spacing: -4px;
+  font-weight: bold;
+
+  &:hover {
+    &::before {
+      height: 40px;
+      opacity: 1;
+    }
+  }
+
+  &::before {
+    content: "Hi, I'm Daniel,";
+    display: block;
+    height: 40px;
+    //margin-left: 430px;
+    //width: 240px;
+    height: 0;
+    opacity: 0;
+    @include transition(opacity 1s ease-in-out, height 1s ease-in-out);
+    color: black;
+  }
 }

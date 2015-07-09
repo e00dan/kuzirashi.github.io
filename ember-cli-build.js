@@ -28,6 +28,7 @@ module.exports = function() {
   });
 
   app.import('bower_components/particles.js/particles.js');
+  app.import('bower_components/jquery-timeago/jquery.timeago.js');
 
   return app.toTree();
 };
