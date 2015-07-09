@@ -4,19 +4,31 @@
 	position: absolute;
 	top: 0;
 	right: 0;
-}
 
-/* reset certain elements (in case of conflicting CSS for classes, links, etc.) */
-.ribbon .text,
-.ribbon .banner,
-.ribbon a {
-	margin: 0;
+	/* reset certain elements (in case of conflicting CSS for classes, links, etc.) */
+	.text, .banner, a {
+		margin: 0;
     padding: 0;
     border: 0;
     outline: 0;
     font-size: 100%;
     vertical-align: baseline;
     background: transparent;
+	}
+
+	.text {
+		position: relative;
+		z-index: 2;
+		padding: 6px 0;
+		font-size: 12px;
+		font-weight: bold;
+		min-height: 18px;
+		line-height: 18px;
+		text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.20);
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		letter-spacing: 6px;
+	}
 }
 
 .ribbon a {
@@ -129,19 +141,6 @@
 	width: 100%;
 	float: none;
 	font-size: 10px;
-}
-
-.ribbon .text {
-	position: relative;
-	z-index: 2;
-	padding: 6px 0;
-	font-size: 12px;
-	font-weight: bold;
-	min-height: 18px;
-	line-height: 18px;
-	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.20);
-	white-space: nowrap;
-	text-overflow: ellipsis;
 }
 
 /* small text */
@@ -319,7 +318,7 @@
 /* black */
 .ribbon-black .banner::after,
 .ribbon-black .banner::before {
-	background-color: #222222;
+	background-color: black;
 }
 .ribbon-black .text::before,
 .ribbon-black .text::after,

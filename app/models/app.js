@@ -3,8 +3,10 @@ import DS from 'ember-data';
 export default DS.Model.extend({
   name: DS.attr('string'),
   description: DS.attr('string'),
+  fullDescription: DS.attr('string'),
   smallImage: DS.attr('string'),
-  tags: DS.hasMany('tags'),
+  tags: DS.hasMany('tags', { async: true }),
   latest: DS.attr('boolean'),
-  link: DS.attr('string')
+  link: DS.attr('string'),
+  added: DS.attr('date')
 });

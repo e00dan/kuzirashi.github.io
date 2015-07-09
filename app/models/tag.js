@@ -2,5 +2,5 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
   name: DS.attr('string'),
-  applications: DS.hasMany('application')
+  apps: DS.hasMany('app', { async: true })
 });

@@ -1,0 +1,29 @@
+{
+  "apps": [
+    {
+      "slug": "cross-video-downloader",
+      "name": "Cross video downloader",
+      "description": "Video downloader from YouTube that runs on Linux, Mac OSX and Windows written in node-webkit.",
+      "tags": ["node.js", "JavaScript", "Ember.js", "NW.js", "Open source"],
+      "link": "http://kuzirashi.github.io/cross-video-downloader/",
+      "added": "Thu Jul 08 2015 12:45:10 GMT+0200 (CEST)"
+    },
+    {
+      "slug": "metin2-server-list",
+      "name": "Metin2 server list",
+      "description": "Written for listing Metin2 game servers for users to add their own servers and manage them also giving them ability to advertise their servers.",
+      "tags": ["C#", "JavaScript", "ASP.NET", "Closed source", "MySQL"],
+      "added": "Thu Jul 07 2015 12:45:10 GMT+0200 (CEST)"
+    },
+    {
+      "slug": "grruca",
+      "name": "Grruca",
+      "description": "Site about fitness.",
+      "smallImage": "img/logo-white.jpg",
+      "tags": ["node.js", "JavaScript", "Ember.js", "Express", "Closed source", "MongoDB"],
+      "latest": true,
+      "link": "http://grruca.com/",
+      "added": "Thu Jul 09 2015 12:45:10 GMT+0200 (CEST)"
+    }
+  ]
+}

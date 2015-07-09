@@ -1,0 +1,32 @@
+<ul class="applications">
+  <li>
+    {{#if model.latest}}
+      <div class="ribbon ribbon-black">
+        <div class="banner">
+          <div class="text">LATEST</div>
+        </div>
+      </div>
+    {{/if}}
+    {{#link-to 'apps.view' model.name}}
+      {{#if model.smallImage}}
+        <img src="{{model.smallImage}}"/>
+      {{else}}
+        <div class="no-image"><i class="fa fa-times"></i></div>
+      {{/if}}
+    {{/link-to}}
+    <div class="body">
+      <header>{{model.name}}</header>
+      <div>{{model.description}}</div>
+      <footer>
+        <ul>
+          {{#each model.tags key='id' as |tag|}}
+            <li class="label">{{tag.id}}</li>
+          {{/each}}
+        </ul>
+        {{#if model.link}}
+          <a class="right app-link" href={{model.link}} target="_blank">{{model.link}}</a>
+        {{/if}}
+      </footer>
+    </div>
+  </li>
+</ul>
