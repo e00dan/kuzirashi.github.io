@@ -27,6 +27,7 @@
     "expectNoDeprecation",
     "ignoreAssertion",
     "ignoreDeprecation",
+    "async",
 
     // A safe subset of "browser:true":
     "window", "document",

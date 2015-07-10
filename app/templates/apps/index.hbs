@@ -1,13 +1,16 @@
 <div class="large-6 large-offset-3 columns">
   <label>
-    {{input value=searchName type='text' class='filter-apps' placeholder='search by application name...'}}
+    {{input value=search type='text' class='filter-apps' placeholder='search by application name...'}}
   </label>
 </div>
 <hr/>
 <em class="tags">TAGS</em>
-<ul class="tags">
+<ul class="tags noselect">
   {{#each model.tags key='id' as |tag|}}
-    <li class="label" title="tag name">{{tag.id}}<span class="apps-count" title="number of applications linked with this tag">{{tag.apps.length}}</span></li>
+    <li class="label cursor-pointer {{if tag.active 'success'}}" title='show applications tagged "{{tag.id}}"' {{action 'selectTag' tag}}>
+      {{tag.id}}
+      <span class="apps-count" title="number of applications linked with this tag">{{tag.apps.length}}</span>
+    </li>
   {{/each}}
 </ul>
 <hr/>
@@ -28,20 +31,24 @@
           <div class="no-image"><i class="fa fa-times"></i></div>
         {{/if}}
         {{#if app.added}}
-          <div class="image-caption">{{time-ago time=app.added title='added'}}</div>
+          {{#animated-caption added=app.added class='image-caption'}}
+            <i class="fa fa-eye"></i>
+          {{/animated-caption}}
         {{/if}}
       {{/link-to}}
       <div class="body">
-        <header>{{link-to app.name 'apps.view' app.id title="application's name"}}</header>
+        <header>{{#link-to 'apps.view' app.id title="application's name"}}{{highlight-match bold=search first=app.name}}{{/link-to}}</header>
         <div class="description" title="application's description">{{app.description}}</div>
         <footer>
-          <ul>
-            {{#each app.tags key='id' as |tag|}}
-              <li class="label">{{tag.id}}</li>
+          <ul class="noselect">
+            {{#each app.tagsSorted key='id' as |tag|}}
+              <li class="label {{if tag.active 'success'}}" title={{tag.description}}>{{tag.id}}</li>
             {{/each}}
           </ul>
           {{#if app.link}}
-            <a class="right app-link" href={{app.link}} target="_blank">{{app.link}}</a>
+            <a class="right app-link" href={{app.link}} target="_blank" title="visit page in new tab">
+              {{expanding-description short=app.link maxLength=44 tagName='span' disableExpand=true}}
+            </a>
           {{/if}}
         </footer>
       </div>

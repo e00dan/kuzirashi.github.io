@@ -401,6 +401,9 @@ ul.applications {
 }
 
 ul.tags {
+  width: 1014px;
+  margin: auto;
+
   li {
     padding-right: 24px;
   }
@@ -449,10 +452,20 @@ input.filter-apps {
   color: white;
   text-transform: lowercase;
   @include transition(height 1s ease-in-out);
+
+  > i {
+    position: absolute;
+    top: calc(50% - 27px);
+    left: calc(50% - 27px);
+    font-size: 54px;
+  }
 }
 
 .application-detailed {
   background-color: rgba(0, 0, 0, 0.36);
+  width: 960px;
+  margin: auto;
+  position: relative;
 }
 
 .ribbon {
@@ -564,4 +577,37 @@ input.filter-apps {
     @include transition(opacity 1s ease-in-out, height 1s ease-in-out);
     color: black;
   }
+}
+
+::selection {
+  background-color: rgb(192, 192, 192);
+}
+
+.inline-bottom {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.detailed-button {
+  font-size: 18px;
+  height: 100px;
+
+  i {
+    display: block;
+    font-size: 60px;
+  }
+
+  span {
+    font-family: inherit;
+    text-transform: lowercase;
+    font-weight: 100;
+  }
+}
+
+.fight-space {
+  margin-right: -4px;
 }

@@ -8,5 +8,9 @@ export default DS.Model.extend({
   tags: DS.hasMany('tags', { async: true }),
   latest: DS.attr('boolean'),
   link: DS.attr('string'),
-  added: DS.attr('date')
+  added: DS.attr('date'),
+  video: DS.belongsTo('video', { async: true }),
+
+  idSort: ['id'],
+  tagsSorted: Ember.computed.sort('tags', 'idSort')
 });

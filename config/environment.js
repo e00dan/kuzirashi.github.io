@@ -21,7 +21,8 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       'img-src': "'self' http://stackoverflow.com",
       'font-src': "'self' http://fonts.gstatic.com",
-      'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com"
+      'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com",
+      'frame-src': "*.facebook.com *.youtube.com"
     }
   };
 

@@ -22,10 +22,10 @@
       "name": "NW.js"
     },
     {
-      "name": "Open source"
+      "name": "Open Source"
     },
     {
-      "name": "Closed source"
+      "name": "closed source"
     },
     {
       "name": "MongoDB"
@@ -35,6 +35,37 @@
     },
     {
       "name": "Mono"
+    },
+    {
+      "name": "Bootstrap"
+    },
+    {
+      "name": "Foundation"
+    },
+    {
+      "name": "PHP"
+    },
+    {
+      "name": "CoffeeScript"
+    },
+    {
+      "name": "D3.js"
+    },
+    {
+      "name": "design",
+      "description": "Designed by me."
+    },
+    {
+      "name": "XNA"
+    },
+    {
+      "name": "game"
+    },
+    {
+      "name": "cross-platform"
+    },
+    {
+      "name": "MonoGame"
     }
   ]
 }

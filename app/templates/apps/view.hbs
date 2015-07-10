@@ -2,19 +2,28 @@
   {{#if model.latest}}
     <div class="ribbon ribbon-black">
       <div class="banner">
-        <div class="text">LATEST</div>
+        <div class="text">LATEST <i class="fa fa-diamond topped-image"></i></div>
       </div>
     </div>
   {{/if}}
-  <div class="body">
+  <div>
     <header>{{model.name}}</header>
-    <div>{{model.description}}</div>
-    <footer>
-      <ul>
-        {{#each model.tags key='id' as |tag|}}
+    {{#if model.video}}
+      {{#if showVideo}}
+        <iframe width="60%" height="440px" src="https://www.youtube.com/embed/{{model.video.id}}" frameborder="0" allowfullscreen></iframe>
+      {{else}}
+        <button class="detailed-button" title="show video" {{action 'showVideo'}}>
+          <i class="fa fa-youtube"></i>
+        </button>
+      {{/if}}
+    {{/if}}
+    <div>
+      tagged:
+      <ul class="inline-bottom">
+        {{#each model.tagsSorted key='id' as |tag|}}
           <li class="label">{{tag.id}}</li>
         {{/each}}
       </ul>
-    </footer>
+    </div>
   </div>
 </div>

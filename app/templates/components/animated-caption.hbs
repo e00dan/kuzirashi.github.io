@@ -1,0 +1,5 @@
+{{#if showTime}}
+  {{time-ago time=added title='added'}}
+{{else if showTemplate}}
+  {{yield}}
+{{/if}}

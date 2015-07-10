@@ -1,6 +1,6 @@
 /* global require, module */
 
-var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 // Use `app.import` to add additional libraries to the generated
 // output files.
@@ -16,7 +16,7 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 // along with the exports of each module as its value.
 
 module.exports = function() {
-  var app = new EmberApp({
+  const app = new EmberApp({
     'ember-cli-foundation-sass': {
       'modernizr': true,
       'fastclick': true,
@@ -29,6 +29,11 @@ module.exports = function() {
 
   app.import('bower_components/particles.js/particles.js');
   app.import('bower_components/jquery-timeago/jquery.timeago.js');
+  app.import('bower_components/async/dist/async.min.js');
+  app.import('bower_components/photoswipe/dist/photoswipe.min.js');
+  app.import('bower_components/photoswipe/dist/photoswipe-ui-default.min.js');
+  app.import('bower_components/photoswipe/dist/photoswipe.css');
+  app.import('bower_components/photoswipe/dist/default-skin/default-skin.css');
 
   return app.toTree();
 };
