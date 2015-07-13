@@ -5,5 +5,6 @@ export default Ember.Route.extend({
     this.store.findAll('app');
     this.store.findAll('tag');
     this.store.findAll('video');
+    this.store.findAll('image');
   }
 });

@@ -23,17 +23,23 @@ module.exports = function() {
       'foundationJs': 'all'
     },
     fingerprint: {
+      enabled: false,
       exclude: ['img/logo-white.jpg']
     }
   });
 
-  app.import('bower_components/particles.js/particles.js');
-  app.import('bower_components/jquery-timeago/jquery.timeago.js');
-  app.import('bower_components/async/dist/async.min.js');
-  app.import('bower_components/photoswipe/dist/photoswipe.min.js');
-  app.import('bower_components/photoswipe/dist/photoswipe-ui-default.min.js');
-  app.import('bower_components/photoswipe/dist/photoswipe.css');
-  app.import('bower_components/photoswipe/dist/default-skin/default-skin.css');
+  app.import(app.bowerDirectory + '/particles.js/particles.js');
+  app.import(app.bowerDirectory + '/jquery-timeago/jquery.timeago.js');
+  app.import(app.bowerDirectory + '/async/dist/async.min.js');
+
+  // PhotoSwipe
+  app.import(app.bowerDirectory + '/photoswipe/dist/photoswipe.min.js');
+  app.import(app.bowerDirectory + '/photoswipe/dist/photoswipe-ui-default.min.js');
+  app.import(app.bowerDirectory + '/photoswipe/dist/photoswipe.css');
+  app.import(app.bowerDirectory + '/photoswipe/dist/default-skin/default-skin.css');
+  app.import(app.bowerDirectory + '/photoswipe/dist/default-skin/default-skin.png', {
+    destDir: 'assets'
+  });
 
   return app.toTree();
 };

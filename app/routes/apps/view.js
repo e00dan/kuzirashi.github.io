@@ -7,5 +7,13 @@ export default Ember.Route.extend({
         resolve(this.store.findRecord('app', params.app_slug));
       });
     });
+  },
+  afterModel() {
+    Ember.run.next(this, () => {
+      this.render('background-gallery', {
+        into: 'application',
+        outlet: 'body-child'
+      });
+    });
   }
 });

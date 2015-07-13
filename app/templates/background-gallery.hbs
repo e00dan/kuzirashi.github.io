@@ -1,0 +1,7 @@
+{{#photo-swipe class='gallery' gallery=psGallery}}
+  {{#each model.images key='id' as |image|}}
+    <a class="photo-item" href={{image.id}} data-width={{image.width}} data-height={{image.height}}>
+      <img src={{image.id}} alt={{image.caption}}>
+    </a>
+  {{/each}}
+{{/photo-swipe}}

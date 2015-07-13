@@ -1,4 +1,4 @@
-<div class="application-detailed">
+<div class="large-9 columns application-detailed margin-auto below-menu">
   {{#if model.latest}}
     <div class="ribbon ribbon-black">
       <div class="banner">
@@ -7,7 +7,7 @@
     </div>
   {{/if}}
   <div>
-    <header>{{model.name}}</header>
+    <header class="font-size-44">{{model.name}}</header>
     {{#if model.video}}
       {{#if showVideo}}
         <iframe width="60%" height="440px" src="https://www.youtube.com/embed/{{model.video.id}}" frameborder="0" allowfullscreen></iframe>
@@ -17,8 +17,12 @@
         </button>
       {{/if}}
     {{/if}}
+    {{#if model.images}}
+      <button class="detailed-button" title="show images" {{action 'showImages'}}>
+        <i class="fa fa-camera-retro"></i>
+      </button>
+    {{/if}}
     <div>
-      tagged:
       <ul class="inline-bottom">
         {{#each model.tagsSorted key='id' as |tag|}}
           <li class="label">{{tag.id}}</li>
