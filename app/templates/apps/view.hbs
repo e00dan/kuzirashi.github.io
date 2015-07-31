@@ -1,33 +1,44 @@
-<div class="large-9 columns application-detailed margin-auto below-menu">
-  {{#if model.latest}}
-    <div class="ribbon ribbon-black">
-      <div class="banner">
-        <div class="text">LATEST <i class="fa fa-diamond topped-image"></i></div>
-      </div>
-    </div>
-  {{/if}}
-  <div>
-    <header class="font-size-44">{{model.name}}</header>
-    {{#if model.video}}
-      {{#if showVideo}}
-        <iframe width="60%" height="440px" src="https://www.youtube.com/embed/{{model.video.id}}" frameborder="0" allowfullscreen></iframe>
-      {{else}}
-        <button class="detailed-button" title="show video" {{action 'showVideo'}}>
-          <i class="fa fa-youtube"></i>
-        </button>
-      {{/if}}
-    {{/if}}
-    {{#if model.images}}
-      <button class="detailed-button" title="show images" {{action 'showImages'}}>
-        <i class="fa fa-camera-retro"></i>
-      </button>
-    {{/if}}
-    <div>
-      <ul class="inline-bottom">
-        {{#each model.tagsSorted key='id' as |tag|}}
-          <li class="label">{{tag.id}}</li>
-        {{/each}}
+<div class="large-9 columns margin-auto below-menu app-view">
+  <header class="font-size-44 text-left">
+    {{model.name}}
+    <span class="right gray-3">{{time-ago time=model.added title='added'}}</span>
+  </header>
+  <div class="panel-contents">
+    {{#if model.videoOrImages}}
+      <ul class="tab-switches">
+        <li>
+          {{#if model.video}}
+            {{#if showVideo}}
+              <iframe width="60%" height="440px" src="https://www.youtube.com/embed/{{model.video.id}}" frameborder="0" allowfullscreen></iframe>
+            {{else}}
+              <a class="button detailed-button yt-tile" title="show video" href="https://www.youtube.com/watch?v={{model.video.id}}" target="_blank">
+                <img src="https://i1.ytimg.com/vi/{{model.video.id}}/default.jpg" />
+                <i class="fa fa-youtube"></i>
+              </a>
+            {{/if}}
+          {{/if}}
+        </li>
+        <li>
+          {{#if model.images}}
+            <button class="detailed-button" title="show images" {{action 'showImages'}}>
+              <div class="tile-gallery">
+                {{#each model.images key='id' as |img|}}
+                  <img src={{img.id}} />
+                {{/each}}
+              </div>
+              <i class="fa fa-camera-retro"></i>
+            </button>
+          {{/if}}
+        </li>
       </ul>
-    </div>
+    {{/if}}
+    <ul class="inline-bottom">
+      {{#each model.tagsSorted key='id' as |tag|}}
+        <li class="label">{{tag.id}}</li>
+      {{/each}}
+    </ul>
+    <span class="gray-3 text-left">
+      {{model.description}}
+    </span>
   </div>
 </div>

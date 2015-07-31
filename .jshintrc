@@ -28,10 +28,8 @@
     "ignoreAssertion",
     "ignoreDeprecation",
     "async",
-
-    // A safe subset of "browser:true":
-    "window", "document",
-    "setTimeout", "clearTimeout", "setInterval", "clearInterval"
+    "PhotoSwipe",
+    "PhotoSwipeUI_Default"
   ],
   "esnext": true,
   "browser" : true,

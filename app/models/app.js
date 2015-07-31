@@ -12,6 +12,14 @@ export default DS.Model.extend({
   video: DS.belongsTo('video', { async: true }),
   images: DS.hasMany('image', { async: true }),
 
+  mainImage: Ember.computed('images[]', {
+    get() {
+      return this.get('images.firstObject');
+    }
+  }).readOnly(),
+
+  videoOrImages: Ember.computed.or('video', 'images').readOnly(),
+
   idSort: ['id'],
   tagsSorted: Ember.computed.sort('tags', 'idSort')
 });

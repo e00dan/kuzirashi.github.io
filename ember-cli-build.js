@@ -41,5 +41,8 @@ module.exports = function() {
     destDir: 'assets'
   });
 
+  // Metro
+  //app.import(app.bowerDirectory + '/metro/build/css/metro.min.css');
+
   return app.toTree();
 };

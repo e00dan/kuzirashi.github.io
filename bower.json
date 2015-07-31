@@ -16,7 +16,8 @@
     "particles.js": "~1.1.0",
     "jquery-timeago": "~1.4.1",
     "async": "~1.3.0",
-    "photoswipe": "~4.0.8"
+    "photoswipe": "~4.0.8",
+    "metro": "~3.0.9"
   },
   "resolutions": {
     "jquery": ">= 2.1.0"

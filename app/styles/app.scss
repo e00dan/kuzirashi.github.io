@@ -5,6 +5,7 @@ $header-font-color: white;
 $body-font-color: white;
 $paragraph-font-weight: 100;
 $form-label-font-weight: 100;
+$white: #fff;
 
 @import "settings";
 
@@ -43,6 +44,7 @@ body {
   font-family: 'Raleway', Helvetica, Arial, sans-serif;
   font-weight: 100;
   background-color: $bg-color;
+  width: 100%;
 }
 
 @include keyframes(hero) {
@@ -170,6 +172,12 @@ footer {
 */
 
 .row {
+    margin: 0 auto;
+    max-width: 62.5rem;
+    width: 100%;
+}
+
+.row {
   &.about, &.work, &.contact {
     margin: 0;
     width: 100%;
@@ -212,7 +220,21 @@ canvas {
 }
 
 .icon-bar {
+  display: inline-block;
+  font-size: 0;
+  width: 100%;
+  background: #333333;
   background-color: transparentize(#0E1017, 0.25);
+
+  > * {
+    display: block;
+    float: left;
+    margin: 0 auto;
+    text-align: center;
+    width: 25%;
+    font-size: 1rem;
+    padding: 1.25rem;
+  }
 
   &.four-up .item {
     width: 100%;
@@ -228,14 +250,6 @@ canvas {
       -webkit-border-image: none;
     }
   }
-
-  /*
-  &.vertical {
-    > .item {
-      margin-top: 9px;
-    }
-  }
-  */
 
   > a {
     border-width: 1px;
@@ -647,4 +661,78 @@ input.filter-apps {
 
 .font-size-44 {
   font-size: 44px;
+}
+
+.app-view {
+  min-height: 240px;
+
+  .inline-bottom {
+    text-align: right;
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+.tab-switches {
+  text-align: right;
+  list-style-type: none;
+  height: 100px;
+
+  li {
+    display: inline-block;
+    vertical-align: middle;
+    height: 100px;
+  }
+}
+
+.panel-contents {
+  position: relative;
+  width: 100%;
+  min-height: 160px;
+  margin-top: 10px;
+
+  > * {
+    margin-top: 10px;
+  }
+}
+
+.blur-cover {
+  -webkit-filter: blur(5px);
+  background-size: cover;
+  position: absolute;
+  opacity: 0.1;
+}
+
+.gray-3 {
+  background-color: #737373;
+  padding: 3px;
+  display: block;
+  clear: right;
+  float: right;
+}
+
+.yt-tile {
+  img {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    opacity: 0.2;
+  }
+}
+
+.tile-gallery {
+  display: inline-flex;
+  vertical-align: top;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  img {
+    width: 62px;
+    height: 50px;
+    opacity: 0.2;
+  }
 }
