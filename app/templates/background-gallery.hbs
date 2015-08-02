@@ -1,1 +1,7 @@
-<img class="photo-item blur-cover" src={{model.mainImage.id}} alt={{model.mainImage.caption}} />
+{{#if model.video}}
+  {{yt-video model=model.video class='blur-cover full-size' tagName='div'}}
+{{else}}
+  {{#if model.mainImage}}
+    <img class="photo-item blur-cover" src={{model.mainImage.id}} alt={{model.mainImage.caption}} />
+  {{/if}}
+{{/if}}
