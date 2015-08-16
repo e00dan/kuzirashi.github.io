@@ -1,10 +1,7 @@
 <div class="large-9 columns margin-auto below-menu app-view">
   <header class="font-size-44 text-left">
-    {{model.name}}{{#if model.link}}, <a href={{model.link}} target="_blank" title="visit page in new tab">
-        {{expanding-description short=model.link maxLength=34 tagName='span' disableExpand=true}}
-      </a>
-    {{/if}}
-    <span class="right gray-3">{{time-ago time=model.added title='added'}}</span>
+    {{model.name}}
+    <span class="right gray-3 see-through-bordered">{{time-ago time=model.added title='added'}}</span>
   </header>
   <div class="panel-contents">
     {{#if model.videoOrImages}}
@@ -14,16 +11,16 @@
             {{#if showVideo}}
               <iframe width="60%" height="440px" src="https://www.youtube.com/embed/{{model.video.id}}" frameborder="0" allowfullscreen></iframe>
             {{else}}
-              <a class="button detailed-button yt-tile" title="show video" href="https://www.youtube.com/watch?v={{model.video.id}}" target="_blank">
+              <a class="button detailed-button yt-tile see-through-bordered" title="show video" href="https://www.youtube.com/watch?v={{model.video.id}}" target="_blank">
                 <img src="https://i1.ytimg.com/vi/{{model.video.id}}/default.jpg" />
                 <i class="fa fa-youtube"></i>
               </a>
             {{/if}}
           {{/if}}
         </li>
-        <li>
-          {{#if model.images}}
-            <button class="detailed-button" title="show images" {{action 'showImages'}}>
+        {{#if model.images}}
+          <li>
+            <button class="detailed-button see-through-bordered" title="show images" {{action 'showImages'}}>
               <div class="tile-gallery">
                 {{#each model.images key='id' as |img|}}
                   <img src={{img.id}} />
@@ -31,17 +28,26 @@
               </div>
               <i class="fa fa-camera-retro"></i>
             </button>
-          {{/if}}
-        </li>
+          </li>
+        {{/if}}
+        {{#if model.link}}
+          <li>
+            <a href={{model.link}} target="_blank" title="visit page in new tab" class="button detailed-button yt-tile see-through-bordered">
+              <i class="fa fa-external-link-square"></i>
+            </a>
+          </li>
+        {{/if}}
       </ul>
     {{/if}}
     <ul class="inline-bottom">
       {{#each model.tagsSorted key='id' as |tag|}}
-        <li class="label">{{tag.id}}</li>
+        {{tag-display model=tag}}
       {{/each}}
     </ul>
-    <span class="gray-3 text-left">
-      {{model.description}}
-    </span>
+    {{#if model.description}}
+      <span class="gray-3 text-left see-through-bordered">
+        {{model.description}}
+      </span>
+    {{/if}}
   </div>
 </div>

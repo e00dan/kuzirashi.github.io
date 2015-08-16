@@ -3,23 +3,22 @@
     <p>
       <div class="large-6 large-offset-3 columns">
         <label>
-          {{input value=search type='text' class='filter-apps' placeholder='search by application name...'}}
+          {{input value=search type='text' placeholder='search by project name...'}}
         </label>
       </div>
       <hr/>
-      <em class="tags">TAGS</em>
       <ul class="tags noselect">
         {{#each model.tags key='id' as |tag|}}
-          <li class="label cursor-pointer {{if tag.active 'success'}}" title='show applications tagged "{{tag.id}}"' {{action 'selectTag' tag}}>
+          <li class="label cursor-pointer see-through-bordered {{if tag.active 'success'}}" title='show projects tagged "{{tag.id}}"' {{action 'selectTag' tag}}>
             {{tag.id}}
-            <span class="apps-count" title="number of applications linked with this tag">{{tag.apps.length}}</span>
+            <span class="apps-count" title="number of projects linked with this tag">{{tag.apps.length}}</span>
           </li>
         {{/each}}
       </ul>
       <hr/>
       <ul class="applications">
         {{#each filteredApps key='id' as |app|}}
-          <li>
+          <li class="see-through-bordered">
             {{#if app.latest}}
               <div class="ribbon ribbon-black">
                 <div class="banner">
@@ -45,7 +44,7 @@
               <footer>
                 <ul class="noselect">
                   {{#each app.tagsSorted key='id' as |tag|}}
-                    <li class="label {{if tag.active 'success'}}" title={{tag.description}}>{{tag.id}}</li>
+                    {{tag-display model=tag title=tag.description active=tag.active}}
                   {{/each}}
                 </ul>
                 {{#if app.link}}

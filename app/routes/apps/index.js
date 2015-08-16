@@ -5,7 +5,7 @@ export default Ember.Route.extend({
     return Ember.RSVP.hash({
       tags: new Promise((resolve) => {
         this.store.findAll('tag').then((tags) => {
-          this.store.findAll('app').then((applications) => {
+          this.store.findAll('app').then(() => { // (applications) =>
             let sorted = tags.toArray().sort((a, b) => {
               // console.log(typeof(a.get('applications.length')));
               // Ember.debug(`a[${a.get('name')}] vs b[${b.get('name')}] : ${a.get('applications.length')} > ${b.get('applications.length')}`);

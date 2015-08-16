@@ -22,7 +22,8 @@ module.exports = function(environment) {
       'img-src': "'self' http://stackoverflow.com",
       'font-src': "'self' http://fonts.gstatic.com https://themes.googleusercontent.com",
       'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com",
-      'frame-src': "*.facebook.com *.youtube.com"
+      'frame-src': "*.facebook.com *.youtube.com *.youtube-nocookie.com",
+      'script-src': "'self' 'unsafe-eval' *.youtube.com https://*.ytimg.com"
     }
   };
 
