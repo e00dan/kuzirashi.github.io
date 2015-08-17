@@ -34,9 +34,12 @@
       "name": "Portfolio",
       "description": "My portfolio.",
       "tags": ["JavaScript", "Ember.js", "closed source", "Foundation", "design"],
-      "latest": true,
       "link": "http://kuzirashi.github.io/",
-      "added": "Fri Jul 10 2015 22:29:10 GMT+0200 (CEST)"
+      "added": "Fri Jul 10 2015 22:29:10 GMT+0200 (CEST)",
+      "smallImage": "img/portfolio/home.png",
+      "images": [
+        "img/portfolio/home.png"
+      ]
     },
     {
       "slug": "node-server-manager",
@@ -52,14 +55,49 @@
       "description": "Open Tibia Account Manager written in PHP using Ember.js.",
       "tags": ["JavaScript", "Ember.js", "PHP", "MySQL", "Open Source", "Bootstrap", "D3.js"],
       "link": "https://github.com/Kuzirashi/ember-account-manager/",
-      "added": "Fri Feb 25 2014 22:29:10 GMT+0200 (CEST)"
+      "added": "Fri Feb 25 2014 22:29:10 GMT+0200 (CEST)",
+      "smallImage": "img/eam/5.png",
+      "images": [
+        "img/eam/1.png",
+        "img/eam/2.png",
+        "img/eam/3.png",
+        "img/eam/4.png",
+        "img/eam/5.png",
+        "img/eam/6.png",
+        "img/eam/7.png",
+        "img/eam/8.png",
+        "img/eam/9.png"
+      ]
     },
     {
       "slug": "tower-defense",
       "name": "Tower Defense",
       "description": "Tower defense game.",
       "tags": ["closed source", "C#", "XNA", "cross-platform", "Mono", "game", "MonoGame"],
-      "added": "Fri Jun 14 2014 22:29:10 GMT+0200 (CEST)"
+      "added": "Fri Jun 14 2014 22:29:10 GMT+0200 (CEST)",
+      "video": "VCcoh4-kQlk",
+      "smallImage": "img/tower-defense/1.png",
+      "images": [
+        "img/tower-defense/1.png",
+        "img/tower-defense/2.png",
+        "img/tower-defense/3.png",
+        "img/tower-defense/4.png",
+        "img/tower-defense/5.png"
+      ]
+    },
+    {
+      "slug": "naruto-dont-starve-together",
+      "name": "Naruto DST",
+      "description": "A character mod for Don't Starve: Together with 4 660+ users.",
+      "tags": ["Open Source", "mod", "LUA"],
+      "link": "http://steamcommunity.com/sharedfiles/filedetails/?id=485694807",
+      "added": "Thu Aug 3 2015 12:45:10 GMT+0200 (CEST)",
+      "smallImage": "img/ndst/1.png",
+      "latest": true,
+      "images": [
+        "img/ndst/1.png",
+        "img/ndst/2.jpg"
+      ]
     }
   ]
 }

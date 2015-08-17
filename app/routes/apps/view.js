@@ -8,12 +8,12 @@ export default Ember.Route.extend({
       });
     });
   },
-  afterModel() {
+  /*afterModel() {
     Ember.run.next(this, () => {
       this.render('background-gallery', {
         into: 'application',
         outlet: 'body-child'
       });
     });
-  }
+  }*/
 });

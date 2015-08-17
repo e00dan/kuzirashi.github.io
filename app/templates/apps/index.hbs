@@ -26,18 +26,14 @@
                 </div>
               </div>
             {{/if}}
-            {{#link-to 'apps.view' app.id}}
-              {{#if app.smallImage}}
+            {{#if app.smallImage}}
+              {{#link-to 'apps.view' app.id}}
                 <img src="{{app.smallImage}}"/>
-              {{else}}
-                <div class="no-image"><i class="fa fa-times"></i></div>
-              {{/if}}
-              {{#if app.added}}
-                {{#animated-caption added=app.added class='image-caption'}}
-                  <i class="fa fa-eye"></i>
-                {{/animated-caption}}
-              {{/if}}
-            {{/link-to}}
+                {{#if app.added}}
+                  {{animated-caption added=app.added class='image-caption'}}
+                {{/if}}
+              {{/link-to}}
+            {{/if}}
             <div class="body">
               <header>{{#link-to 'apps.view' app.id title="application's name"}}{{highlight-match bold=search first=app.name}}{{/link-to}}</header>
               <div class="description" title="application's description">{{app.description}}</div>
@@ -47,11 +43,6 @@
                     {{tag-display model=tag title=tag.description active=tag.active}}
                   {{/each}}
                 </ul>
-                {{#if app.link}}
-                  <a class="right app-link" href={{app.link}} target="_blank" title="visit page in new tab">
-                    {{expanding-description short=app.link maxLength=44 tagName='span' disableExpand=true}}
-                  </a>
-                {{/if}}
               </footer>
             </div>
           </li>

@@ -18,7 +18,35 @@ export default DS.Model.extend({
     }
   }).readOnly(),
 
-  videoOrImages: Ember.computed.or('video', 'images').readOnly(),
+  videoOrImages: Ember.computed('video', 'images', {
+    get() {
+      this.get('images').then((images) => {
+        this.get('video').then((video) => {
+          this.set('videoOrImages', video || images.get('length') > 0);
+        });
+        
+      });
+    },
+    set(key, value) {
+      console.log(value);
+      return value;
+    }
+  }),
+  
+  first4Images: Ember.computed('images', {
+    get() {
+      this.get('images').then((images) => {
+        if (images.get('length') === 0) {
+          return;
+        }
+        
+        this.set('first4Images', images.slice(0, 4));
+      });
+    },
+    set(key, value) {
+      return value;
+    }
+  }),
 
   idSort: ['id'],
   tagsSorted: Ember.computed.sort('tags', 'idSort')

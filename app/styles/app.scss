@@ -1,15 +1,24 @@
-@import url(http://fonts.googleapis.com/css?family=Raleway:100,400);
-@import url(http://fonts.googleapis.com/css?family=Fjalla+One);
+@import url(http://fonts.googleapis.com/css?family=Raleway:100,400|Fjalla+One);
 
 $primary-color: #737373;
-$header-font-color: white;
-$body-font-color: white;
+$white: #fff;
+
+$header-font-color: $white;
+$body-font-color: $white;
 $paragraph-font-weight: 100;
 $form-label-font-weight: 100;
-$white: #fff;
 $input-bg-color: rgba(0, 0, 0, 0.56);
 $input-border-color: rgba(255, 255, 255, 0.36);
+$input-focus-bg-color: rgba(0, 0, 0, 0.36);
+$input-focus-font-color: $white;
+$input-font-color: $white;
 $success-color: rgba(67, 172, 106, 0.56);
+$anchor-font-color: $white;
+$anchor-font-color-hover: $white;
+$primary-color: $white;
+$label-font-color: $white;
+$button-font-color: $white;
+$button-font-color-alt: $white;
 
 @import "settings";
 
@@ -255,7 +264,7 @@ canvas {
     z-index: 2;
 
     > a {
-      border-bottom: 1px solid;
+      border-bottom: 1px solid #737373;
       -webkit-border-image: none;
     }
   }
@@ -294,7 +303,7 @@ canvas {
 }
 
 .contact {
-  background-image: url('/img/traffic.jpg');
+  background-image: url('/img/stones.jpg');
   background-size: cover;
   box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.15);
   height: 100vh;
@@ -337,7 +346,7 @@ ul.applications {
 
     img {
       background-color: rgba(115, 115, 115, 0.41);
-      height: 160px;
+      height: 158px;
       width: 160px;
       float: left;
     }
@@ -345,14 +354,18 @@ ul.applications {
     > a {
       &:hover {
         .image-caption {
-          height: 160px;
+          height: 158px;
         }
+      }
+      
+      + .body {
+        margin-left: 185px;
       }
     }
 
     div.no-image {
       background-color: rgba(115, 115, 115, 0.41);
-      height: 160px;
+      height: 158px;
       width: 160px;
       float: left;
 
@@ -368,7 +381,8 @@ ul.applications {
 
     .body {
       text-align: left;
-      margin-left: 205px;
+      margin-left: 20px;
+      width: 90%;
 
       header {
         font-size: 24px;
@@ -376,7 +390,7 @@ ul.applications {
 
         a {
           color: white;
-          font-weight: 300;
+          font-weight: 500;
           text-transform: uppercase;
         }
       }
@@ -468,7 +482,7 @@ footer.main {
   height: 25px;
   bottom: 0;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.56);
   color: white;
   text-transform: lowercase;
   @include transition(height 1s ease-in-out);
@@ -738,6 +752,7 @@ footer.main {
   position: absolute;
   top: 0;
   left: 0;
+  flex-wrap: wrap;
 
   img {
     width: 62px;
@@ -799,5 +814,80 @@ footer.main {
   footer {
     font-size: 24px;
     @include animation('footer-rotate 5s infinite');
+  }
+}
+
+@include keyframes(reach-to) {
+  0%   { opacity: 0; }
+  50%  { opactiy: 0.2; }
+  100% { opacity: 1; }
+}
+
+.dusted {
+  width: 100%;
+  position: fixed;
+  white-space: nowrap;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  
+  &.dusted-anim {
+    @include animation('reach-to 5s');
+  }
+    
+  &.dusted-on {
+    z-index: 1;
+    opacity: 0.2
+  }
+  
+  > img {
+    width: 37%;
+    
+    &:nth-of-type(2n) {
+      transform: scaleX(-1);
+    }
+    
+    &:nth-of-type(n + 1) {
+      margin-left: -17px;
+    }
+  }
+}
+
+.diamond {
+  position: fixed;
+  pointer-events: none;
+  margin: auto;
+  width: 100%;
+  margin-top: 20px;
+  
+  &::before {
+    content: '';
+    display: block;
+    width: 100%;
+    top: 0;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(to top, black 0%, transparent 100%);
+    opacity: 0.7;
+    @include transition(background 2s ease-in-out);
+  }
+  
+  img {
+    opacity: 0.7;
+    margin-left: 13px;
+  }
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.visible {
+  opacity: 1;
+}
+
+.animated-caption {
+  .fa-eye {
+    @include transition(opacity 1s);
   }
 }

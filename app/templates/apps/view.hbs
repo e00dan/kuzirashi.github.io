@@ -1,5 +1,8 @@
 <div class="large-9 columns margin-auto below-menu app-view">
   <header class="font-size-44 text-left">
+    {{#link-to 'apps'}}
+    <i class="fa fa-arrow-circle-o-left"></i>
+    {{/link-to}}
     {{model.name}}
     <span class="right gray-3 see-through-bordered">{{time-ago time=model.added title='added'}}</span>
   </header>
@@ -22,7 +25,7 @@
           <li>
             <button class="detailed-button see-through-bordered" title="show images" {{action 'showImages'}}>
               <div class="tile-gallery">
-                {{#each model.images key='id' as |img|}}
+                {{#each model.first4Images key='id' as |img|}}
                   <img src={{img.id}} />
                 {{/each}}
               </div>

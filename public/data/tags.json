@@ -66,6 +66,8 @@
     },
     {
       "name": "MonoGame"
-    }
+    },
+    { "name": "mod" },
+    { "name": "LUA" }
   ]
 }
