@@ -12,5 +12,11 @@ export default Router.map(function() {
 
   this.route('home', { path: '/' });
   this.route('contact');
-  this.route('about');
+  this.route('about', function() {
+    this.route('general');
+    this.route('experience', function() {
+      this.route('view');
+    });
+  });
+
 });

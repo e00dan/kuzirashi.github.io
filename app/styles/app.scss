@@ -213,6 +213,18 @@ footer {
   &.full > .column:last-child, .full > .columns:last-child {
     padding-right: 0;
   }
+
+  &.home {
+    .large-12 {
+      z-index: 1;
+      height: 100vh;
+    }
+
+
+    #particles-js {
+      z-index: -1;
+    }
+  }
 }
 
 .vertical-menu {
@@ -243,6 +255,12 @@ canvas {
   width: 100%;
   background: #333333;
   background-color: transparentize(#0E1017, 0.25);
+  //opacity: 0.5;
+  //@include transition(opacity 0.5s);
+
+  //&:hover {
+  //  opacity: 1;
+  //}
 
   > * {
     display: block;
@@ -790,26 +808,64 @@ footer.main {
 }
 
 .about-top {
-  background: url('/img/face_1.jpg');
+  background: url('/img/un_17.jpg');
   height: 50vh;
   opacity: 0.25;
-  background-position: 0 -220px;
+  background-position: 0 -480px;
   cursor: pointer;
+  background-size: cover;
 
-  &:hover {
-    opacity: 0.50;
+  header {
+    font-size: 48px;
+    color: white;
+    left: calc(50% - 100px);
+    text-align: center;
+    width: 200px;
+    font-weight: 500;
+    position: absolute;
+    top: calc(50% - 37px);
+    z-index: 4;
+    border: 1px solid white;
+    background-color: rgba(0, 0, 0, 0.3);
   }
 }
 
 .about-bottom {
-  background: url('/img/un_8.jpg');
+  background: url('/img/un_10.jpg');
   height: 50vh;
   opacity: 0.25;
-  background-size: 100% 100%;
+  background-size: cover;//100% 100%;
   cursor: pointer;
+  background-position: 0 -400px;
+
+  header {
+    font-size: 48px;
+    color: white;
+    left: calc(50% - 250px);
+    text-align: center;
+    width: 500px;
+    font-weight: 500;
+    position: absolute;
+    top: calc(50% - 37px);
+    z-index: 4;
+    border: 1px solid white;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+
+.about-top, .about-bottom {
+  //-webkit-filter: grayscale(1);
+  transition: opacity .7s;
+  position: relative;
 
   &:hover {
-    opacity: 0.50;
+    opacity: 1;
+    -webkit-filter: none;
+
+    header {
+      background-color: white;
+      color: transparentize(black, 0.7);
+    }
   }
 }
 
@@ -817,12 +873,7 @@ footer.main {
   position: absolute;
   width: 100%;
   z-index: 3;
-
-  .line {
-    background-color: white;
-    width: 100%;
-    height: 5px;
-  }
+  height: 1px;
 
   .circle {
     margin: auto;
@@ -840,6 +891,7 @@ footer.main {
     color: black;
     height: 76px;
     line-height: 76px;
+    text-transform: uppercase;
   }
 
   .arrow-concrete {
@@ -847,7 +899,7 @@ footer.main {
     height: 0;
     border-style: solid;
     border-width: 0 25px 25px 25px;
-    border-color: transparent transparent #ffffff transparent;
+    border-color: transparent transparent rgba(255, 255, 255, 0.56) transparent;
   }
 
   .arrow {
@@ -970,4 +1022,53 @@ footer.main {
   .fa-eye {
     @include transition(opacity 1s);
   }
+}
+
+ul.timeline {
+  list-style-type: none;
+  position: relative;
+  height: 94vh;
+  padding-top: 120px;
+
+  li {
+    display: inline-block;
+    position: relative;
+    width: 49%;
+    height: 100%;
+    float: left;
+
+    &:nth-of-type(n + 2) {
+      margin-left: 10px;
+    }
+
+    header {
+      font-size: 24px;
+    }
+
+    .bottom {
+      display: block;
+      height: 40px;
+      width: 100%;
+      background: black;
+      position: absolute;
+      bottom: -20px;
+      left: 0;
+      padding: 6px 20px;
+    }
+
+    .card {
+      background-color: rgba(0, 0, 0, 0.56);
+      padding: 50px 50px;
+      height: 100%;
+    }
+  }
+}
+
+div.time-line {
+  width: 100vw;
+  height: 1px;
+  background: white;
+  position: absolute;
+  top: 90%;
+  margin-left: -15px;
 }

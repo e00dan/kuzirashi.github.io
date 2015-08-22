@@ -19,8 +19,8 @@ module.exports = function() {
   const app = new EmberApp({
     'ember-cli-foundation-sass': {
       'modernizr': true,
-      'fastclick': true,
-      'foundationJs': 'all'
+      'fastclick': false,
+      'foundationJs': false
     },
     fingerprint: {
       enabled: false,
