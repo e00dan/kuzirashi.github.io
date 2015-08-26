@@ -1,5 +1,9 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway:100,400|Fjalla+One);
 
+@mixin bwFont {
+  font-family: 'Fjalla One', sans-serif;
+}
+
 $primary-color: #737373;
 $white: #fff;
 
@@ -925,7 +929,7 @@ footer.main {
   border: 1px solid white;
   width: 460px;
   margin: auto;
-  font-family: 'Fjalla One', sans-serif;
+  @include bwFont;
   text-transform: uppercase;
 
   .main {
@@ -1043,23 +1047,43 @@ ul.timeline {
 
     header {
       font-size: 24px;
+      text-transform: uppercase;
+      font-weight: 500;
     }
 
     .bottom {
-      display: block;
-      height: 40px;
-      width: 100%;
+      width: calc(100% + 40px);
+      margin-left: -20px;
       background: black;
-      position: absolute;
-      bottom: -20px;
-      left: 0;
       padding: 6px 20px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(10, 10, 10, 0.56);
+      margin-top: 10px;
+    }
+
+    .time-info {
+      @include bwFont;
+      padding-top: 10px;
     }
 
     .card {
-      background-color: rgba(0, 0, 0, 0.56);
-      padding: 50px 50px;
-      height: 100%;
+      padding: 20px 20px 0 20px;
+      position: relative;
+      border: 1px solid rgba(0, 0, 0, 0.56);
+
+      .cover-container {
+        pointer-events: none;
+      }
+
+      img.card-cover {
+        top: 0;
+        display: block;
+        opacity: 0.1;
+        -webkit-filter: grayscale(1);
+        position: absolute;
+        left: 0;
+      }
     }
   }
 }

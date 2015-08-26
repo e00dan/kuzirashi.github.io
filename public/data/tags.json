@@ -68,6 +68,11 @@
       "name": "MonoGame"
     },
     { "name": "mod" },
-    { "name": "LUA" }
+    { "name": "LUA" },
+    { "name": "Linux" },
+    { "name": "jQuery" },
+    { "name": "CodeIgniter" },
+    { "name": "Phalcon" },
+    { "name": "Visual Basic 6.0" }
   ]
 }

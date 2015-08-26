@@ -9,10 +9,12 @@
       <hr/>
       <ul class="tags noselect">
         {{#each model.tags key='id' as |tag|}}
-          <li class="label cursor-pointer see-through-bordered {{if tag.active 'success'}}" title='show projects tagged "{{tag.id}}"' {{action 'selectTag' tag}}>
-            {{tag.id}}
-            <span class="apps-count" title="number of projects linked with this tag">{{tag.apps.length}}</span>
-          </li>
+          {{#if tag.apps.length}}
+            <li class="label cursor-pointer see-through-bordered {{if tag.active 'success'}}" title='show projects tagged "{{tag.id}}"' {{action 'selectTag' tag}}>
+              {{tag.id}}
+              <span class="apps-count" title="number of projects linked with this tag">{{tag.apps.length}}</span>
+            </li>
+          {{/if}}
         {{/each}}
       </ul>
       <hr/>
