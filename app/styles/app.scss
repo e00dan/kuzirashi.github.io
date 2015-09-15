@@ -139,12 +139,25 @@ body {
   }
 }
 
-@media only screen and (min-width: 456px) {
+@media only screen and (min-width: 513px) {
   .icon-bar:not(.vertical) {
     position: absolute;
+    height: initial;
 
     &.four-up .item {
       width: 25%;
+    }
+  }
+}
+
+@media only screen and (min-width: 550px) {
+  .home-p > .me-equals {
+    width: 546px;
+    letter-spacing: -4px;
+    font-style: italic;
+
+    &::before {
+      text-shadow: none;
     }
   }
 }
@@ -259,12 +272,7 @@ canvas {
   width: 100%;
   background: #333333;
   background-color: transparentize(#0E1017, 0.25);
-  //opacity: 0.5;
-  //@include transition(opacity 0.5s);
-
-  //&:hover {
-  //  opacity: 1;
-  //}
+  height: 396px;
 
   > * {
     display: block;
@@ -618,11 +626,11 @@ footer.main {
 
 .me-equals {
   text-transform: uppercase;
-  letter-spacing: -4px;
   font-weight: bold;
   display: block;
-  width: 546px;
   margin: auto;
+  width: 330px;
+  font-style: normal;
 
   &:hover {
     &::before {
@@ -641,6 +649,7 @@ footer.main {
     opacity: 0;
     @include transition(opacity 1s ease-in-out, height 1s ease-in-out);
     color: black;
+    text-shadow: 1px 1px 15px white;
   }
 }
 
