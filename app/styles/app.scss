@@ -28,6 +28,8 @@ $button-font-color-alt: $white;
 
 @import "foundation";
 
+@import "bower_components/sass-mediaqueries/_media-queries";
+
 $bg-color: #1d1d1d;
 
 @mixin transition($transition...) {
@@ -55,6 +57,10 @@ $bg-color: #1d1d1d;
   @keyframes $animation-name {
     @content;
   }
+}
+
+* {
+  z-index: inherit;
 }
 
 body {
@@ -128,18 +134,25 @@ body {
   }
 }
 
-@media only screen and (min-width: 40.063em) {
+@include mq($min-width: 40.063em) {
   .intro-text {
     padding-top: 25%;
   }
 }
-@media only screen and (min-width: 64.063em) {
+
+@include mq($min-width: 64.063em) {
   .intro-text {
     padding-top: 18%;
   }
 }
 
-@media only screen and (min-width: 513px) {
+@include mq($min-width: 345px) {
+  em.me-equals {
+    width: 330px;
+  }
+}
+
+@include mq($min-width: 513px) {
   .icon-bar:not(.vertical) {
     position: absolute;
     height: initial;
@@ -148,9 +161,21 @@ body {
       width: 25%;
     }
   }
+
+  main.row.full .row {
+    margin: 0 -0.9375rem;
+  }
+
+  main ~ footer.main {
+    position: fixed;
+    bottom: 0;
+    padding: 5px 10px;
+    border-bottom: none;
+    background-color: rgba(0, 0, 0, 0.44);
+  }
 }
 
-@media only screen and (min-width: 550px) {
+@include mq($min-width: 550px) {
   .home-p > .me-equals {
     width: 546px;
     letter-spacing: -4px;
@@ -195,21 +220,14 @@ hr {
   opacity: 0.8;
 }
 
-/*
-footer {
-  padding: 80px 0 10px 0;
-
-  a:hover {
-    color: rgba(0, 0, 0, 0.4);
-    background-color: transparent;
-  }
-}
-*/
-
 .row {
     margin: 0 auto;
     max-width: 62.5rem;
     width: 100%;
+}
+
+main.row .row {
+  margin: 0;
 }
 
 .row {
@@ -490,10 +508,9 @@ ul.tags {
 }
 
 footer.main {
-  position: fixed;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.44);
-  padding: 5px 10px;
+  text-align: center;
+  border-bottom: 1px solid #737373;
+  background-color: rgba(14, 16, 23, 0.75);
 
   ul {
     margin: 0;
@@ -629,7 +646,6 @@ footer.main {
   font-weight: bold;
   display: block;
   margin: auto;
-  width: 330px;
   font-style: normal;
 
   &:hover {
@@ -811,7 +827,6 @@ footer.main {
 
 .home-p {
   display: block;
-  width: 564px;
   margin: auto;
 }
 
