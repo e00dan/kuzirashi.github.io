@@ -2,8 +2,8 @@
   "name": "kuzi",
   "dependencies": {
     "jquery": ">= 2.1.0",
-    "ember": "2.1.0-beta.4",
-    "ember-data": "2.1.0-beta.4",
+    "ember": "2.1.0",
+    "ember-data": "2.1.0",
     "ember-resolver": "~0.1.18",
     "loader.js": "ember-cli/loader.js#3.2.1",
     "ember-cli-shims": "ember-cli/ember-cli-shims#0.0.3",
