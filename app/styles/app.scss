@@ -171,8 +171,21 @@ body {
     bottom: 0;
     padding: 5px 10px;
     border-bottom: none;
-    background-color: rgba(0, 0, 0, 0.44);
     z-index: $z-index-home-intro + 1;
+    width: 100%;
+
+    ul > li {
+      display: inline-block;
+      background-color: rgba(0, 0, 0, 0.44);
+
+      &:first-of-type {
+        float: left;
+      }
+
+      &:last-of-type {
+        float: right;
+      }
+    }
   }
 }
 
@@ -508,7 +521,7 @@ ul.tags {
 footer.main {
   text-align: center;
   border-bottom: 1px solid #737373;
-  background-color: rgba(14, 16, 23, 0.75);
+  //background-color: rgba(14, 16, 23, 0.75);
 
   ul {
     margin: 0;
