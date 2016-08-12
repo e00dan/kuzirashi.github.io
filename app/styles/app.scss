@@ -410,7 +410,7 @@ ul.applications {
     }
 
     > a {
-      &:hover {
+      &:hover, &.hovered {
         .image-caption {
           height: 158px;
         }

@@ -7,12 +7,16 @@ export default Ember.Component.extend({
     const element = this.get('element');
     element.addEventListener('transitionend', () => {
       if (element.clientHeight === 158) {
-        this.set('showTime', false);
-        return this.set('showTemplate', true);
+        return Ember.run(() => {
+          this.set('showTime', false);
+          this.set('showTemplate', true);
+        });
       }
 
-      this.set('showTemplate', false);
-      this.set('showTime', true);
+      Ember.run(() => {
+        this.set('showTemplate', false);
+        this.set('showTime', true);
+      });
     }, false);
   }
 });

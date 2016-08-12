@@ -1,27 +1,41 @@
 import { moduleForComponent, test } from 'ember-qunit';
+import Ember from 'ember';
 import hbs from 'htmlbars-inline-precompile';
-
 
 moduleForComponent('animated-caption', 'Integration | Component | animated caption', {
   integration: true
 });
 
-test('it renders', function(assert) {
-  assert.expect(2);
+test('it shows eye when you hover it after transition', function(assert) {
+  assert.expect(6);
 
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+  return new Ember.RSVP.Promise(resolve => {
+    Ember.run(() => {
+      this.render(hbs`
+        <ul class="applications">
+          <li>
+            <a href="#">
+              {{animated-caption added=true class='image-caption'}}
+            </a>
+          </li>
+        </ul>`);
+      }
+    );
 
-  this.render(hbs`{{animated-caption}}`);
+    assert.equal(this.$('.fa-eye').hasClass('visible'), false);
+    assert.ok(this.$('.fa-eye').hasClass('hidden'));
+    assert.equal(this.$('time').length, 1);
 
-  assert.equal(this.$().text(), '');
+    this.$().on('transitionend', () => {
+      assert.ok(true, 'transition is fired');
+      assert.ok(this.$('.fa-eye').hasClass('visible'));
+      assert.equal(this.$('time').length, 0);
 
-  // Template block usage:
-  this.render(hbs`
-    {{#animated-caption}}
-      template block text
-    {{/animated-caption}}
-  `);
+      resolve();
+    });
 
-  assert.equal(this.$().text().trim(), 'template block text');
+    Ember.run.next(() =>
+      this.$('a').addClass('hovered')
+    );
+  });
 });
