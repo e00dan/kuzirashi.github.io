@@ -77,7 +77,7 @@ export default Ember.Controller.extend({
       console.log('selectedTags');
       console.log(selectedTags);
 
-      if (selectedTags.get('length') === 0) {
+      if (!selectedTags || Ember.get(selectedTags, 'length') === 0) {
         console.log('Selected tags is 0');
         return;
       }
