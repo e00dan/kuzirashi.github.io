@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-const { PhotoSwipe, PhotoSwipeUI_Default } = { window };
+const { PhotoSwipe, PhotoSwipeUI_Default } = window;
 
 export default Ember.Route.extend({
   _showImages(providedElement) {

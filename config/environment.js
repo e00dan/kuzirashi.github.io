@@ -22,11 +22,11 @@ module.exports = function(environment) {
     },
 
     contentSecurityPolicy: {
-      'img-src': "'self' http://stackoverflow.com",
-      'font-src': "'self' http://fonts.gstatic.com https://themes.googleusercontent.com",
-      'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com",
+      'img-src': "'self' stackoverflow.com",
+      'font-src': "'self' fonts.gstatic.com themes.googleusercontent.com",
+      'style-src': "'self' 'unsafe-inline' fonts.googleapis.com",
       'frame-src': "*.facebook.com *.youtube.com *.youtube-nocookie.com",
-      'script-src': "'self' 'unsafe-eval' *.youtube.com https://*.ytimg.com"
+      'script-src': "'self' 'unsafe-eval' *.youtube.com *.ytimg.com"
     }
   };
 
