@@ -3,6 +3,7 @@ if ember build -e production; then
   if rm -rf ../kuzi-hub/*; then
     # rm -rf ../kuzi-hub/.git
     if cp -Rf dist/* ../kuzi-hub; then
+      cp .travis.yml ../kuzi-hub/
       cd ../kuzi-hub
       # git init
       # git checkout -b master
