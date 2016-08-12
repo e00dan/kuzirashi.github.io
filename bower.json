@@ -2,14 +2,10 @@
   "name": "kuzi",
   "dependencies": {
     "jquery": ">= 2.1.0",
-    "ember": "2.2.0",
-    "ember-data": "^2.2.1",
-    "loader.js": "^3.5.0",
-    "ember-cli-shims": "0.0.6",
-    "ember-cli-test-loader": "0.2.1",
-    "ember-load-initializers": "0.1.7",
+    "ember": "~2.3.1",
+    "ember-cli-shims": "0.1.0",
+    "ember-cli-test-loader": "0.2.2",
     "ember-qunit-notifications": "0.1.0",
-    "qunit": "~1.20.0",
     "foundation": "~5.5.0",
     "particles.js": "~1.1.0",
     "jquery-timeago": "~1.4.1",
@@ -20,6 +16,6 @@
   },
   "resolutions": {
     "jquery": ">= 2.1.0",
-    "ember": "2.2.0"
+    "ember": "~2.3.1"
   }
 }

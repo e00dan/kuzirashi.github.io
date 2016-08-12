@@ -1,5 +1,7 @@
 import Ember from 'ember';
 
+const async = { window };
+
 export default Ember.Controller.extend({
   queryParams: ['search', 'tags'],
   tags: [],

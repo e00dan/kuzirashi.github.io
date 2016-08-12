@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import Ember from 'ember';
 
 export default DS.Model.extend({
   name: DS.attr('string'),
@@ -24,7 +25,7 @@ export default DS.Model.extend({
         this.get('video').then((video) => {
           this.set('videoOrImages', video || images.get('length') > 0);
         });
-        
+
       });
     },
     set(key, value) {
@@ -32,14 +33,14 @@ export default DS.Model.extend({
       return value;
     }
   }),
-  
+
   first4Images: Ember.computed('images', {
     get() {
       this.get('images').then((images) => {
         if (images.get('length') === 0) {
           return;
         }
-        
+
         this.set('first4Images', images.slice(0, 4));
       });
     },

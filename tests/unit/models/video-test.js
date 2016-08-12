@@ -1,8 +1,9 @@
 import { moduleForModel, test } from 'ember-qunit';
 
 moduleForModel('video', 'Unit | Model | video', {
-  // Specify the other units that are required for this test.
-  needs: []
+  needs: [
+    'model:app'
+  ]
 });
 
 test('it exists', function(assert) {

@@ -4,8 +4,9 @@ import {
 } from 'ember-qunit';
 
 moduleForModel('tag', {
-  // Specify the other units that are required for this test.
-  needs: []
+  needs: [
+    'model:app'
+  ]
 });
 
 test('it exists', function(assert) {

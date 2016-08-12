@@ -1,5 +1,7 @@
 import Ember from 'ember';
 
+const { PhotoSwipe, PhotoSwipeUI_Default } = { window };
+
 export default Ember.Route.extend({
   _showImages(providedElement) {
     const pswpElement = providedElement || document.querySelectorAll('.pswp')[0],
@@ -34,7 +36,7 @@ export default Ember.Route.extend({
     gallery.init();
   },
   model(params) {
-    return new Promise(resolve => {
+    return new Ember.RSVP.Promise(resolve => {
       this.store.findAll('app').then(() => resolve(this.store.findRecord('app', params.app_slug)));
     });
   },

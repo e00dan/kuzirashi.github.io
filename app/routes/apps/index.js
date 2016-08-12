@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   model() {
     return Ember.RSVP.hash({
-      tags: new Promise((resolve) => {
+      tags: new Ember.RSVP.Promise((resolve) => {
         this.store.findAll('tag').then((tags) => {
           this.store.findAll('app').then(() => { // (applications) =>
             let sorted = tags.toArray().sort((a, b) => {
@@ -16,7 +16,7 @@ export default Ember.Route.extend({
           });
         });
       }),
-      applications: new Promise((resolve) => {
+      applications: new Ember.RSVP.Promise((resolve) => {
         this.store.findAll('app').then((apps) => {
           resolve(apps.toArray().sort((a, b) => {
             return (a.get('added') > b.get('added')) ? -1 : 1;

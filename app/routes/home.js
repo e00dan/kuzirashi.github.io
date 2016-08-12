@@ -1,5 +1,7 @@
 import Ember from 'ember';
 
+const { particlesJS } = window;
+
 export default Ember.Route.extend({
   actions: {
     didTransition() {
@@ -34,7 +36,7 @@ export default Ember.Route.extend({
           condensed_mode: {
             enable: false,
             rotateX: 600,
-            rotateY: 600
+            rotateY: 60
           }
         },
         anim: {
