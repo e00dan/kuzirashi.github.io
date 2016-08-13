@@ -34,7 +34,7 @@ export default Ember.Controller.extend({
             const appTags = resolvedTags.mapBy('id');
             tags.forEach((predefTag) => {
               if (hasAllTags) {
-                hasAllTags = appTags.contains(predefTag);
+                hasAllTags = appTags.includes(predefTag);
               }
             });
             callback(hasAllTags);
@@ -55,7 +55,7 @@ export default Ember.Controller.extend({
             const appTags = resolvedTags.mapBy('id');
             tags.forEach((predefTag) => {
               if (hasAllTags) {
-                hasAllTags = appTags.contains(predefTag);
+                hasAllTags = appTags.includes(predefTag);
               }
             });
             callback(hasAllTags);
@@ -79,7 +79,7 @@ export default Ember.Controller.extend({
 
       this.store.findAll('tag').then((tags) => {
         tags.forEach((tag) => {
-          tag.set('active', selectedTags.contains(tag.get('id')));
+          tag.set('active', selectedTags.includes(tag.get('id')));
         });
       });
     });

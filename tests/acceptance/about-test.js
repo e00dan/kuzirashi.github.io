@@ -61,7 +61,7 @@ test('arrow rotates in direction of your mouse', function(assert) {
       return (angle < 0) ? angle + 360 : angle;
     }
 
-    const $arrow = this.$('.arrow');
+    const $arrow = $('.arrow');
 
     assert.equal(getRotationDegrees($arrow), 0);
 

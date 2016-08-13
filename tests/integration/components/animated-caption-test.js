@@ -22,20 +22,20 @@ test('it shows eye when you hover it after transition', function(assert) {
       }
     );
 
-    assert.equal(this.$('.fa-eye').hasClass('visible'), false);
-    assert.ok(this.$('.fa-eye').hasClass('hidden'));
-    assert.equal(this.$('time').length, 1);
+    assert.equal($('.fa-eye').hasClass('visible'), false);
+    assert.ok($('.fa-eye').hasClass('hidden'));
+    assert.equal($('time').length, 1);
 
-    this.$().on('transitionend', () => {
+    $('.animated-caption').on('transitionend', () => {
       assert.ok(true, 'transition is fired');
-      assert.ok(this.$('.fa-eye').hasClass('visible'));
-      assert.equal(this.$('time').length, 0);
+      assert.ok($('.fa-eye').hasClass('visible'));
+      assert.equal($('time').length, 0);
 
       resolve();
     });
 
     Ember.run.next(() =>
-      this.$('a').addClass('hovered')
+      $('a').addClass('hovered')
     );
   });
 });

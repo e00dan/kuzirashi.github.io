@@ -17,16 +17,16 @@ test('visiting /apps', function(assert) {
   andThen(function() {
     assert.equal(currentURL(), '/apps');
 
-    assert.equal(this.$('ul.applications > li').length, APPS_LENGTH);
-    assert.equal(this.$('ul.applications li:first header a span').text().trim().toLowerCase(), FIRST_APP);
+    assert.equal($('ul.applications > li').length, APPS_LENGTH);
+    assert.equal($('ul.applications li:first header a span').text().trim().toLowerCase(), FIRST_APP);
 
-    assert.equal(this.$('.tags > li').length, TAGS_LENGTH);
+    assert.equal($('.tags > li').length, TAGS_LENGTH);
   });
 
   click('.tags [title*="Ember.js"]');
 
   andThen(function() {
-    assert.equal(this.$('ul.applications > li').length, EMBER_APPS_LENGTH);
-    assert.equal(this.$('ul.applications li:first header a span').text().trim().toLowerCase(), FIRST_EMBER_APP);
+    assert.equal($('ul.applications > li').length, EMBER_APPS_LENGTH);
+    assert.equal($('ul.applications li:first header a span').text().trim().toLowerCase(), FIRST_EMBER_APP);
   });
 });

@@ -11,7 +11,7 @@ test('visiting /about/experience', function(assert) {
   andThen(function() {
     assert.equal(currentURL(), '/about/experience');
 
-    assert.equal(this.$('.card').length, 2);
-    assert.equal(this.$('.card:first a').text().toLowerCase(), 'memsoria.pl');
+    assert.equal($('.card').length, 2);
+    assert.equal($('.card:first a').text().toLowerCase(), 'memsoria.pl');
   });
 });
