@@ -1,7 +1,6 @@
-# Kuzi
+# Daniel Kmak site [![Build Status](https://travis-ci.org/Kuzirashi/kuzirashi.github.io.svg?branch=source)](https://travis-ci.org/Kuzirashi/kuzirashi.github.io)
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+You can find here code behind my site - [danielkmak.com](danielkmak.com). There is also a test suite.
 
 ## Prerequisites
 
@@ -41,7 +40,7 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Deploying
 
-Specify what it takes to deploy your app.
+I'm usually running `up.sh` script to deploy this application.
 
 ## Further Reading / Useful Links
 
@@ -50,4 +49,3 @@ Specify what it takes to deploy your app.
 * Development Browser Extensions
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
-
