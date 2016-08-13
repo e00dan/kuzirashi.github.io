@@ -2,7 +2,12 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model() {
-    this.store.findAll('tag');
-    return this.store.findAll('experience');
+    const store = this.get('store');
+
+    return new Ember.RSVP.Promise(resolve => {
+      store.findAll('tag').then(() => {
+        resolve(store.findAll('experience'));
+      });
+    });
   }
 });

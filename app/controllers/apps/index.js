@@ -28,7 +28,6 @@ export default Ember.Controller.extend({
       }
 
       if (!searchName && !tagsIsEmpty) {
-        console.log('!searchName && !tagsIsEmpty');
         return async.filter(applications.toArray(), (app, callback) => {
           let hasAllTags = true;
           app.get('tags').then((resolvedTags) => {
@@ -46,7 +45,6 @@ export default Ember.Controller.extend({
       }
 
       if (searchName && !tagsIsEmpty) {
-        console.log('searchName && !tagsIsEmpty');
         return async.filter(applications.toArray(), (app, callback) => {
           if (app.get('name').toLowerCase().indexOf(lowercasedSearchName) === -1) {
             return callback(false);
@@ -74,23 +72,14 @@ export default Ember.Controller.extend({
   highlightTags: Ember.on('init', function() {
     Ember.run.next(this, () => {
       const selectedTags = this.get('tags');
-      console.log('selectedTags');
-      console.log(selectedTags);
 
       if (!selectedTags || Ember.get(selectedTags, 'length') === 0) {
-        console.log('Selected tags is 0');
         return;
       }
 
-      console.log('Before store find all tag');
-
       this.store.findAll('tag').then((tags) => {
-        console.log('findAll tags');
         tags.forEach((tag) => {
-          console.log('tags for each');
-          console.log(tag.get('id'));
-          console.log((selectedTags.contains(tag.get('id'))));
-          tag.set('active', (selectedTags.contains(tag.get('id'))));
+          tag.set('active', selectedTags.contains(tag.get('id')));
         });
       });
     });
@@ -98,7 +87,7 @@ export default Ember.Controller.extend({
   actions: {
     selectTag(tagRecord) {
       const tagId = tagRecord.get('id'),
-            tags = this.get('tags');
+            tags  = this.get('tags');
 
       this.store.findRecord('tag', tagId).then((tag) => {
         if (tags.indexOf(tagId) === -1) {

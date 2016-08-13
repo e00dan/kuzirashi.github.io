@@ -5,7 +5,7 @@ const { particlesJS } = window;
 export default Ember.Route.extend({
   actions: {
     didTransition() {
-      Ember.run.next(this, 'initParticles');
+      Ember.run.scheduleOnce('afterRender', this, 'initParticles');
     }
   },
   initParticles() {

@@ -3,7 +3,6 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   muteVideo: Ember.observer('model', 'model.id', function() {
     Ember.debug('component.muteVideo fired');
-    //alert('loadVideo');
     const tag = document.createElement('script');
     tag.src = "//www.youtube.com/iframe_api";
 
@@ -13,11 +12,7 @@ export default Ember.Component.extend({
     let player;
 
     function onPlayerReady() {
-      Ember.debug('onPlayerReady()');
-      //console.log(player);
-
       player.playVideo();
-      // Mute!
       player.mute();
     }
 
