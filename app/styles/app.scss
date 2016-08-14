@@ -189,13 +189,17 @@ body {
 }
 
 @include mq($min-width: 550px) {
-  .home-p > .me-equals {
+  .home-p {
     width: 546px;
-    letter-spacing: -4px;
-    font-style: italic;
+    
+    > .me-equals {
+      width: 546px;
+      letter-spacing: -4px;
+      font-style: italic;
 
-    &::before {
-      text-shadow: none;
+      &::before {
+        text-shadow: none;
+      }
     }
   }
 }
