@@ -191,7 +191,7 @@ body {
 @include mq($min-width: 550px) {
   .home-p {
     width: 546px;
-    
+
     > .me-equals {
       width: 546px;
       letter-spacing: -4px;
