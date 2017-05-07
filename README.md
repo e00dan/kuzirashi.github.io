@@ -1,5 +1,7 @@
 # Daniel Kmak site [![Build Status](https://travis-ci.org/Kuzirashi/kuzirashi.github.io.svg?branch=source)](https://travis-ci.org/Kuzirashi/kuzirashi.github.io)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Kuzirashi/kuzirashi.github.io.svg)](https://greenkeeper.io/)
+
 You can find here code behind my site - [danielkmak.com](danielkmak.com). There is also a test suite.
 
 ## Prerequisites
