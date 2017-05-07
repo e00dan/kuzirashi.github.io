@@ -29,7 +29,6 @@ export default DS.Model.extend({
       });
     },
     set(key, value) {
-      console.log(value);
       return value;
     }
   }),

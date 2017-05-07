@@ -1,18 +1,18 @@
 <div class="icon-bar four-up noselect">
   {{#link-to 'home' class='item'}}
-    {{unbound (fa-icon 'home')}}
+    {{fa-icon 'home'}}
     <label>Home</label>
   {{/link-to}}
-  {{#link-to 'about' class='item'}}
-    {{unbound (fa-icon 'user')}}
-    <label>About me</label>
-  {{/link-to}}
+  <a href="/blog" class="item">
+    {{fa-icon 'book'}}
+    <label>Blog</label>
+  </a>
   {{#link-to 'apps' class='item'}}
-    {{unbound (fa-icon 'desktop')}}
+    {{fa-icon 'desktop'}}
     <label>Projects</label>
   {{/link-to}}
   {{#link-to 'contact' class='item'}}
-    {{unbound (fa-icon 'envelope-o')}}
+    {{fa-icon 'envelope-o'}}
     <label>Contact</label>
   {{/link-to}}
 </div>
